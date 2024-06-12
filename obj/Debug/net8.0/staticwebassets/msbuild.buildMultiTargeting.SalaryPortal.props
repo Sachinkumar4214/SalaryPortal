@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SalaryPortal.props" />
+</Project>

@@ -1,0 +1,130 @@
+﻿@using X.PagedList.Mvc.Core
+
+@using X.PagedList
+@model IPagedList<SalaryPortal.Models.Entities.Salary>
+@{
+    ViewBag.Title = "List";
+}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<h3>Salary Details</h3>
+
+@* <a asp-action="Add" asp-controller="Salary" class="btn btn-primary mb-3">Add Salary</a> *@
+ 
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr class="bg-secondary navbar-dark text-white bold text-decoration-none"> 
+            <th>@Html.ActionLink("Gross_Salary", "List", new { sortOrder = ViewBag.GrossSalarySortParam, currentFilter = ViewBag.CurrentFilter }, new { @class = "custom-link" })</th>
+            <th>Medical Allowance</th>
+            <th>@Html.ActionLink("Basic_Salary", "List", new { sortOrder = ViewBag.GrossSalarySortParam, currentFilter = ViewBag.CurrentFilter }, new { @class = "custom-link" })</th>
+            <th>HRA</th>
+            <th>Employee ID</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <form asp-action="List" asp-controller="Salary" method="get" id="searchForm">
+            <div class="row">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <input type="text" name="searchString" value="@ViewBag.CurrentFilter" class="form-control" id="searchString" placeholder="Search">
+                                <span style="margin-bottom: 9px" class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <a style="margin-left:600px" asp-action="Add" asp-controller="Salary" class="btn btn-primary mb-3">Add Salary</a>
+                        </div>
+                    </div>
+                </div>
+        </form>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Gross_Salary)</td>
+                <td>@Html.DisplayFor(modelItem => item.Medical_Allowance)</td>
+                <td>@Html.DisplayFor(modelItem => item.Basic_Salary)</td>
+                <td>@Html.DisplayFor(modelItem => item.HRA)</td>
+                <td>@Html.DisplayFor(modelItem => item.Employee_Id)</td>
+                <td class="icon-container">
+                    <a href="@Url.Action("Edit", "Salary", new { id = item.Salary_Id })"><i class="fas fa-edit"></i></a><br />
+                    <a href="@Url.Action("Delete", "Salary", new { id = item.Salary_Id })"
+                       class="delete-link"
+                       onclick="return confirmDelete();">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        @if (Model.HasPreviousPage)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("List", new { page = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a class="page-link" href="@Url.Action("List", new { page = i, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })">@i</a>
+            </li>
+        }
+
+        @if (Model.HasNextPage)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("List", new { page = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
+
+
+@* <div>
+    Page @(Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("List", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+</div>
+ *@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var typingTimer;
+            var doneTypingInterval = 500; // in milliseconds (0.5 seconds)
+
+            $('#searchString').on('input', function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(doneTyping, doneTypingInterval);
+            });
+
+            function doneTyping() {
+                $('#searchForm').submit();
+            }
+        });
+    </script>
+}
+
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this item?");
+    }
+</script>
+ 

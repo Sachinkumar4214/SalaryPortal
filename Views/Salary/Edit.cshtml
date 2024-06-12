@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Edit Salary";
+}
+@model SalaryPortal.Models.EmployeeViewModel
+
+<div class="container">
+    <h1>Edit Salary</h1>
+    <form action="/Salary/Edit" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="mt3" style="display: none;">
+            <label class="form-label">Salary_Id</label>
+            <input type="text" class="form-control" asp-for="Salary_Id" readonly />
+        </div>
+
+        <!-- Gross Salary -->
+        <div class="mt3 row">
+            <label class="form-label col-sm-3">Gross Salary</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="Gross_Salary" />
+            </div>
+        </div>
+
+        <!-- Medical Allowance -->
+        <div class="mt3 row">
+            <label class="form-label col-sm-3">Medical Allowance</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="Medical_Allowance" />
+            </div>
+        </div>
+
+        <!-- Basic Salary -->
+        <div class="mt3 row">
+            <label class="form-label col-sm-3">Basic Salary</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="Basic_Salary" />
+            </div>
+        </div>
+
+        <!-- HRA -->
+        <div class="mt3 row">
+            <label class="form-label col-sm-3">HRA</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="HRA" />
+            </div>
+        </div>
+
+        <!-- Employee ID -->
+        <div class="mt3 row">
+            <label class="form-label col-sm-3">Employee ID</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="Employee_Id" />
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group mt-3">
+            <button type="button" class="btn btn-primary" onclick="window.history.back()">Back</button>
+            <button type="submit" value="Save" class="btn btn-secondary mr-2">Save</button>
+        </div>
+    </form>
+</div>

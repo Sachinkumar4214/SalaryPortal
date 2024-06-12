@@ -1,0 +1,219 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+
+
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+Styling for table header
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+}
+
+Styling for table data cells
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+Alternate row background color
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+Hover effect
+tr:hover {
+    background-color: #ddd;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    Adjust: margin as needed margin-left:auto
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+table, th, td {
+    border: 2px solid black;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+input[type="hidden"] {
+    display: none;
+}
+
+Styling for delete button
+#deleteForm {
+    margin-top: 20px;
+}
+
+#deleteForm input[type="submit"] {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    #deleteForm input[type="submit"]:hover {
+        background-color: #d32f2f;
+    }
+
+Optional: Style for confirmation dialog
+.confirm-dialog {
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items vertically center */
+}
+
+    .icon-container a {
+        margin-right: 10px; /* Adjust margin between icons */
+    }
+
+.col-sm-8,
+.col-sm-4 {
+    padding: 0;
+    margin: 0;
+}
+
+.submit {
+    border-left: none;
+}
+
+.custom-link {
+    color: white;
+    text-decoration: none;
+}
+
+.float-left {
+    float: left;
+}
+
+.col-sm-10 {
+    float: right;
+    padding-right: 268px;
+}
+
+.radio-btn {
+    float: left;
+    width: 106px;
+}
+
+.text-danger {
+    color: #dc3545; /* Red color */
+    font-size: 0.875rem; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+}
